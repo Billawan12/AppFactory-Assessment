@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         # Initialize two pointers for the search range
@@ -27,3 +28,21 @@ class Solution:
 
         # Target was not found in the array
         return -1
+
+
+if __name__ == "__main__":
+    # Test cases
+    sol = Solution()
+
+    test_cases = [
+        ([-1, 0, 3, 5, 9, 12], 9, 4),
+        ([-1, 0, 3, 5, 9, 12], 2, -1),
+        ([5], 5, 0),
+        ([5], -5, -1),
+        ([], 1, -1),
+    ]
+
+    for nums, target, expected in test_cases:
+        result = sol.search(nums, target)
+        status = "PASS" if result == expected else "FAIL"
+        print(f"[{status}] search({nums}, {target}) = {result} (expected {expected})")
